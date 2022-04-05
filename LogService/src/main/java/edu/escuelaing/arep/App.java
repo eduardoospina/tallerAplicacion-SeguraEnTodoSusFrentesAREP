@@ -1,6 +1,8 @@
 package edu.escuelaing.arep;
 
 import static spark.Spark.*;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * Hello world!
@@ -12,6 +14,13 @@ public class App
         secure(getKeystore(), "123456",null, null);
 
         port(getPort());
+
+        staticFileLocation("/static");
+        get("/", (req, res) -> {
+            res.redirect("index.html");
+            return null;
+        });
+
         get("/hello", (req, res) -> "Hello world");
     }
 
@@ -27,5 +36,22 @@ public class App
             return System.getenv("Keystore");
         }
         return "Keystores/ecikeystore.p12"; //returns default port if heroku-port isn't set(i.e. on localhost)
+    }
+
+    public String convertir(String Clave) {
+        MessageDigest mensaje = null;
+        try {
+            mensaje = MessageDigest.getInstance("SHA-256");
+        }
+        catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return null;
+        }
+        byte[] newHash = mensaje.digest(Clave.getBytes());
+        StringBuffer finalizacion = new StringBuffer();
+        for(byte i : newHash) {
+            finalizacion.append(String.format("%02x", i));
+        }
+        return finalizacion.toString();
     }
 }
