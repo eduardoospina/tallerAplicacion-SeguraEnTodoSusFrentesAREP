@@ -103,12 +103,11 @@ cuando los certificados estan creados correctamente, se manda a correr los progr
 
 
 
-.
-
 ### AWS:
 
 se repiten lo sismo pasos para cada una de las maquncas y se crean 2 EC2 en donde en cada una se monta un servidor utilizado para 
-solucionar el proyecto completmanete, los siguientes screenshots muestran los procedimientos necesarios. 
+solucionar el proyecto completmanete, los siguientes screenshots muestran los procedimientos necesarios. la ssiguiente s imagenes muestran la forma de crear 
+la sinstancia ec2 en aws(no especificamne este lab)
 
 ![](https://i.postimg.cc/Wpy9TnHn/Capture1.png)
 
@@ -128,27 +127,62 @@ solucionar el proyecto completmanete, los siguientes screenshots muestran los pr
 
 ![](https://i.postimg.cc/5NcR8gSt/Capture9.png)
 
-![]()
-![]()
-![]()
-![]()
-![]()
-![]()
-![]()
-![]()
-![]()
-![]()
-![]()
-![]()
-![]()
-![]()
-![]()
-![]()
-![]()
-![]()
-![]()
-![]()
-![]()
+- keytool -genkeypair -alias ecikeypair -keyalg RSA -keysize 2048 -storetype PKCS12 -keystore ecikeystore.p12 -validity 3605
+- keytool -export -Keystore ./ecikeystore.p12 -storetype PKCS12 -alias ecikeypair -file ecicert.cer
+- keytool -import -file ./ecicert.cer -alias firstCA -keystore myTrustStore
+
+- keytool -genkeypair -alias ecikeypair2 -keyalg RSA -keysize 2048 -storetype PKCS12 -keystore ecikeystore2.p12 -validity 3605
+- keytool -export -Keystore ./ecikeystore2.p12 -storetype PKCS12 -alias ecikeypair2 -file ecicert2.cer
+- keytool -import -file ./ecicert2.cer -alias firstCA2 -keystore myTrustStore
+
+a partir de estos comandos se generan nuevamente las llaves para ser utilizadas en aws. imagenes correspondientes. 
+
+![](https://github.com/eduardoospina/tallerAplicacion-SeguraEnTodoSusFrentesAREP/blob/main/Img/aws1.PNG)
+
+![](https://github.com/eduardoospina/tallerAplicacion-SeguraEnTodoSusFrentesAREP/blob/main/Img/aws2.PNG)
+
+![](https://github.com/eduardoospina/tallerAplicacion-SeguraEnTodoSusFrentesAREP/blob/main/Img/aws3.PNG)
+
+![](https://github.com/eduardoospina/tallerAplicacion-SeguraEnTodoSusFrentesAREP/blob/main/Img/aws4.PNG)
+
+![](https://github.com/eduardoospina/tallerAplicacion-SeguraEnTodoSusFrentesAREP/blob/main/Img/aws5.PNG)
+
+![](https://github.com/eduardoospina/tallerAplicacion-SeguraEnTodoSusFrentesAREP/blob/main/Img/aws6.PNG)
+
+![](https://github.com/eduardoospina/tallerAplicacion-SeguraEnTodoSusFrentesAREP/blob/main/Img/aws7.PNG)
+
+![](https://github.com/eduardoospina/tallerAplicacion-SeguraEnTodoSusFrentesAREP/blob/main/Img/aws8.PNG)
+
+![](https://github.com/eduardoospina/tallerAplicacion-SeguraEnTodoSusFrentesAREP/blob/main/Img/aws9.PNG)
+
+![](https://github.com/eduardoospina/tallerAplicacion-SeguraEnTodoSusFrentesAREP/blob/main/Img/aws10.PNG)
+
+![](https://github.com/eduardoospina/tallerAplicacion-SeguraEnTodoSusFrentesAREP/blob/main/Img/aws11.PNG)
+
+![](https://github.com/eduardoospina/tallerAplicacion-SeguraEnTodoSusFrentesAREP/blob/main/Img/aws12.PNG)
+
+![](https://github.com/eduardoospina/tallerAplicacion-SeguraEnTodoSusFrentesAREP/blob/main/Img/aws13.PNG)
+
+![](https://github.com/eduardoospina/tallerAplicacion-SeguraEnTodoSusFrentesAREP/blob/main/Img/aws14.PNG)
+
+![](https://github.com/eduardoospina/tallerAplicacion-SeguraEnTodoSusFrentesAREP/blob/main/Img/aws15.PNG)
+
+![](https://github.com/eduardoospina/tallerAplicacion-SeguraEnTodoSusFrentesAREP/blob/main/Img/aws16.PNG)
+
+![](https://github.com/eduardoospina/tallerAplicacion-SeguraEnTodoSusFrentesAREP/blob/main/Img/aws17.PNG)
+
+![](https://github.com/eduardoospina/tallerAplicacion-SeguraEnTodoSusFrentesAREP/blob/main/Img/aws18.PNG)
+
+![](https://github.com/eduardoospina/tallerAplicacion-SeguraEnTodoSusFrentesAREP/blob/main/Img/aws19.PNG)
+
+![](https://github.com/eduardoospina/tallerAplicacion-SeguraEnTodoSusFrentesAREP/blob/main/Img/aws20.PNG)
+
+![](https://github.com/eduardoospina/tallerAplicacion-SeguraEnTodoSusFrentesAREP/blob/main/Img/aws21.PNG)
+
+![](https://github.com/eduardoospina/tallerAplicacion-SeguraEnTodoSusFrentesAREP/blob/main/Img/aws22.PNG)
+
+
+video de corrido en vivo de esta pruebas se encuentra dentor de la carpeta videofuncionAWS.
 
 
 ### Arquitectura implementada
