@@ -53,6 +53,32 @@ public class App
             }
             return "";
         });
+        post("/login", (req, res) ->{
+            req.session(true);
+            Gson gson=new Gson();
+            user = gson.fromJson(req.body(), Usuarios.class);
+            if(convertir(user.getPassword()).equals(usuarios.LoadPassByUser(user.getUser()))){
+                req.session().attribute("User",user.getUser());
+                req.session().attribute("loged",true);
+            }
+            else{
+                return "no entra";
+            }
+            return "";
+        });
+        post("/login", (req, res) ->{
+            req.session(true);
+            Gson gson=new Gson();
+            user = gson.fromJson(req.body(), Usuarios.class);
+            if(convertir(user.getPassword()).equals(usuarios.LoadPassByUser(user.getUser()))){
+                req.session().attribute("User",user.getUser());
+                req.session().attribute("loged",true);
+            }
+            else{
+                return "no entra";
+            }
+            return "";
+        });
     }
 
     static int getPort() {

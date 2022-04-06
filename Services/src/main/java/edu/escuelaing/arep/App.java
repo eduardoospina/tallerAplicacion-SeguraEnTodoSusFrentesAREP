@@ -10,7 +10,10 @@ import org.json.simple.JSONObject;
 public class App 
 {
     public static void main(String[] args) {
+
         port(getPort());
+
+        secure(getKeyStore(), "123456",getKeyTrustStore(),"123456");
 
         get("/hello", (req, res) -> "Hello Heroku");
 
@@ -33,5 +36,19 @@ public class App
             return Integer.parseInt(System.getenv("PORT"));
         }
         return 34002; //returns default port if heroku-port isn't set(i.e. on localhost)
+    }
+
+    private static String getKeyStore() {
+        if (System.getenv("KEYSTORE") != null){
+            return System.getenv("KEYSTORE");
+        }
+        return "keystores/ecikeystore2.p12";
+    }
+
+    private static String getKeyTrustStore() {
+        if (System.getenv("KEYSTORE") != null){
+            return System.getenv("KEYSTORE");
+        }
+        return "keystores/myTrustStore";
     }
 }
