@@ -31,6 +31,9 @@ Desarrolle una aplicación Web segura con los siguientes requerimientos:
 
 3) se pueden correr lo servidores directamente de las clases main de cada uno de los dos proyectos, que cuando se ponen a correr permite la conecion local. 
 al montarlo en aws las direcciones no quedan correctos para local, requieren cmabio. 
+
+![](https://github.com/eduardoospina/tallerAplicacion-SeguraEnTodoSusFrentesAREP/blob/main/Img/Corriendo%20Local.PNG)
+![](https://github.com/eduardoospina/tallerAplicacion-SeguraEnTodoSusFrentesAREP/blob/main/Img/Corriendo%20Local2.PNG)
    
 4) se ejecutan ya sea por comandos de consola o directamente desde al IDE que corra cad auno de los programas:
 
