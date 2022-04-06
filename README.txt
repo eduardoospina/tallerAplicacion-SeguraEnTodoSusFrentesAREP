@@ -104,6 +104,8 @@ cuando los certificados estan creados correctamente, se manda a correr los progr
 
 
 
+.
+
 ### AWS:
 
 se repiten lo sismo pasos para cada una de las maquncas y se crean 2 EC2 en donde en cada una se monta un servidor utilizado para 
