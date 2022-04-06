@@ -209,6 +209,11 @@ la limitacion de este desarrollo es que solo esta definido para dos procesos mat
 -   javascript
 -   java
 
+### Javadoc: 
+
+generar documentacion:
+
+$ mvn javadoc:javadoc
 
 ### Licencia.
 
