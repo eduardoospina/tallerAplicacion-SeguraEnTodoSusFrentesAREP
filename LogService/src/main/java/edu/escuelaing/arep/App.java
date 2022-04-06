@@ -97,7 +97,7 @@ public class App
         else{
             boolean auth=request.session().attribute("loged");
             if(!auth) {
-                halt(401, "<h1> 401 No esta autorizado para solicitar este recurso. </h1>");
+                halt(401, "<h1> no ha hecho login</h1>");
             }};
     }
 
