@@ -189,10 +189,20 @@ video de corrido en vivo de esta pruebas se encuentra dentor de la carpeta video
 
 La arquitectura implementada es: 
 
-![]()
+![](https://github.com/eduardoospina/tallerAplicacion-SeguraEnTodoSusFrentesAREP/blob/main/Img/arquitectura.PNG)
+
+llegamos a implemntar un sistemas de loging para asegurarnos de utilizar los certificados y la autorizacion dentro de nuestro servidores, de aca sale para otro servidor que ofrece un servicio especifico, al mismo tiempo que 
+es seguro, y llega a implementar las validaciones necesitadas. en mi caso se hace un servicio de dos matematicos que regresan suys valores calculados. 
 
 ### Escalabilidad:
 
+la escalabilidad de este proyecto llega a ser elevada, ya que solo es necesario modificar levemente el servidor qu emaneja el login, ya que seri agregar nuevos botones de procesos matematicos que manden peticiones al backend, en donde se requeriria codificar estos procesos matematicos nuevos y decirle que dependiento de estas nuevas peticiones manden 
+los valores calculados por el codigo. no llega a ser un proceso complejo y permite eslara el poryecto de un amanera muy elevada. las dificulades relacionadas con esto seria el de continuar empleando los procesos de validacion de usarios para cada uno de estps nuevos servicios que se ofrecerian en el servicio como adiciones. Gracias a esto la escalibilidad es elevada para el proceso desarrollado. 
+
+
+### Limitaciones: 
+
+la limitacion de este desarrollo es que solo esta definido para dos procesos matematicos especificos, por lo qu esi se desea continuar ocn el desarrollo es necesario extender el proyecto dependiendo del nivel de aumento y reducion de limitaciones que se quier aver para el proyecto.
 
 ## Construido con
 -   HTML
