@@ -4,6 +4,9 @@ import static spark.Spark.*;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import com.google.gson.Gson;
+import spark.Request;
+import spark.Response;
+import spark.Session;
 
 
 /**
@@ -23,8 +26,12 @@ public class App
         secure(getKeystore(), "123456",null, null);
         SecureURLReader.reader();
         port(getPort());
-
         staticFileLocation("/static");
+
+        before("/DLogin/*",App::validarIngresoInvalido);
+
+
+
 
         get("/", (req, res) -> {
             res.redirect("index.html");
@@ -79,4 +86,19 @@ public class App
         }
         return finalizacion.toString();
     }
+
+    private static void validarIngresoInvalido(Request request, Response response) {
+        request.session(true);
+        Session session = request.session();
+        boolean newSession = session.isNew();
+        if(newSession){
+            request.session().attribute("loged",false);
+        }
+        else{
+            boolean auth=request.session().attribute("loged");
+            if(!auth) {
+                halt(401, "<h1> 401 No esta autorizado para solicitar este recurso. </h1>");
+            }};
+    }
+
 }

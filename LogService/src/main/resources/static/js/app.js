@@ -8,7 +8,7 @@ var Services = (function () {
         axios.post(Url + "/login",usuario).then(res=>{
             console.log(res.data)
             if(res.data == ""){
-                window.location.href= 'comprobar.html';
+                window.location.href= 'DLogin/comprobar.html';
                 }
             else{
                 alert("El usuario o clave no registrados");
