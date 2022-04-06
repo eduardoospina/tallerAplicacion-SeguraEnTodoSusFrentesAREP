@@ -78,7 +78,7 @@ public class App
         if (System.getenv("KEYSTORE") != null) {
             return System.getenv("Keystore");
         }
-        return "Keystores/ecikeystore.p12"; //returns default port if heroku-port isn't set(i.e. on localhost)
+        return "keystores/ecikeystore.p12"; //returns default port if heroku-port isn't set(i.e. on localhost)
     }
 
 
