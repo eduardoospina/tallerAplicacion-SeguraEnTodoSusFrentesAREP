@@ -3,6 +3,8 @@ package edu.escuelaing.arep;
 import static spark.Spark.*;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import com.google.gson.Gson;
+
 
 /**
  * Hello world!
@@ -10,18 +12,40 @@ import java.security.NoSuchAlgorithmException;
  */
 public class App 
 {
-    public static void main(String[] args) {
-        secure(getKeystore(), "123456",null, null);
 
+    private static Usuarios user;
+    private static userdb usuarios = new userdb();
+
+
+    public static void main(String[] args) {
+        //System.out.println(convertir("12345Ab3"));
+
+        secure(getKeystore(), "123456",null, null);
+        SecureURLReader.reader();
         port(getPort());
 
         staticFileLocation("/static");
+
         get("/", (req, res) -> {
             res.redirect("index.html");
             return null;
         });
 
         get("/hello", (req, res) -> "Hello world");
+
+        post("/login", (req, res) ->{
+            req.session(true);
+            Gson gson=new Gson();
+            user = gson.fromJson(req.body(), Usuarios.class);
+            if(convertir(user.getPassword()).equals(usuarios.LoadPassByUser(user.getUser()))){
+                req.session().attribute("User",user.getUser());
+                req.session().attribute("loged",true);
+            }
+            else{
+                return "no entra";
+            }
+            return "";
+        });
     }
 
     static int getPort() {
@@ -38,7 +62,8 @@ public class App
         return "Keystores/ecikeystore.p12"; //returns default port if heroku-port isn't set(i.e. on localhost)
     }
 
-    public String convertir(String Clave) {
+
+    public static String convertir(String Clave) {
         MessageDigest mensaje = null;
         try {
             mensaje = MessageDigest.getInstance("SHA-256");
