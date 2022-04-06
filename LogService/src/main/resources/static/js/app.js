@@ -1,6 +1,6 @@
 var Services = (function () {
 
-    var Url = "https://ec2-34-207-220-18.compute-1.amazonaws.com/"
+    var Url = "https://ec2-3-80-112-51.compute-1.amazonaws.com:34000/"
 
     function login(idusermame, Passwordid){
         const usuario={user:idusermame,password:Passwordid}
