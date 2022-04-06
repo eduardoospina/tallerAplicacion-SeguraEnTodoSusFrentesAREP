@@ -53,32 +53,18 @@ public class App
             }
             return "";
         });
-        post("/login", (req, res) ->{
-            req.session(true);
-            Gson gson=new Gson();
-            user = gson.fromJson(req.body(), Usuarios.class);
-            if(convertir(user.getPassword()).equals(usuarios.LoadPassByUser(user.getUser()))){
-                req.session().attribute("User",user.getUser());
-                req.session().attribute("loged",true);
-            }
-            else{
-                return "no entra";
-            }
-            return "";
+        get("/Atan", (req, res) -> {
+            res.type("application/json");
+            Double input = Double.parseDouble(req.queryParams("value"));
+            return SecureURLReader.getAtan(input);
         });
-        post("/login", (req, res) ->{
-            req.session(true);
-            Gson gson=new Gson();
-            user = gson.fromJson(req.body(), Usuarios.class);
-            if(convertir(user.getPassword()).equals(usuarios.LoadPassByUser(user.getUser()))){
-                req.session().attribute("User",user.getUser());
-                req.session().attribute("loged",true);
-            }
-            else{
-                return "no entra";
-            }
-            return "";
+
+        get("/Sqrt", (req, res) -> {
+            res.type("application/json");
+            Double input = Double.parseDouble(req.queryParams("value"));
+            return SecureURLReader.getSqrt(input);
         });
+
     }
 
     static int getPort() {

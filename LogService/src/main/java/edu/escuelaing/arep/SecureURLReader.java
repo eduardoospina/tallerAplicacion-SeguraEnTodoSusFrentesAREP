@@ -1,5 +1,7 @@
 package edu.escuelaing.arep;
 
+import org.json.JSONML;
+
 import java.io.*;
 import java.net.*;
 import java.security.KeyManagementException;
@@ -97,8 +99,8 @@ public class SecureURLReader {
         }
     }
 
-    public static String getSqrt() throws IOException {
-        String site = "https://localhost:34002/sqrt";
+    public static String getSqrt(Double datos) throws IOException {
+        String site = "https://localhost:34002/sqrt?value="+ datos;
         URL url = new URL(site);
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("GET");
@@ -109,12 +111,13 @@ public class SecureURLReader {
             while ((responseLine = br.readLine()) != null) {
                 response.append(responseLine.trim());
             }
+            System.out.println(response);
             return response.toString();
         }
     }
 
-    public static String getAtan() throws IOException {
-        String site = "https://localhost:34002/atan";
+    public static String getAtan(Double datos) throws IOException {
+        String site = "https://localhost:34002/atan?value="+ datos;
         URL url = new URL(site);
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("GET");
@@ -125,6 +128,7 @@ public class SecureURLReader {
             while ((responseLine = br.readLine()) != null) {
                 response.append(responseLine.trim());
             }
+            System.out.println(response);
             return response.toString();
         }
     }

@@ -21,8 +21,8 @@
                 <label class="form-label">Username:</label>
                 <input id="idnumero" type="text" class="form-control"  name="txtname" placeholder="numero">
             </div>
-            <button id="Button1" class="btn btn-danger" onclick="Services.login(idusermame.value, Passwordid.value)"> atan </button>
-            <button id="Button2" class="btn btn-danger" onclick="Services.login(idusermame.value, Passwordid.value)"> sqrt </button>
+            <button id="Button1" class="btn btn-danger" onclick="obtenerMath.obteneratan(idnumero.value)"> atan </button>
+            <button id="Button2" class="btn btn-danger" onclick="obtenerMath.obtenersqrt(idnumero.value)"> sqrt </button>
 
         </div>
 
@@ -33,7 +33,7 @@
     </div>
     <hr>
 </main>
-<script src="js/app.js"></script>
+<script src="js/comprobar.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </body>

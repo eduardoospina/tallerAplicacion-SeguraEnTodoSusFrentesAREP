@@ -1,18 +1,19 @@
 var obtenerMath = (function () {
-    function obtenerAtan(){
-        axios.get("/LoginVerificado/servicio").then(res=>{
-            document.getElementById("servicio").innerHTML = "La fecha y hora actual es: "+res.data;
+
+    function obtenerAtan(numero){
+        axios.get("/Atan?value="+numero).then(res=>{
+            document.getElementById("servicio").innerHTML = "El resultado matematico es: "+JSON.stringify(res.data);
         })
     }
-    function obtenersqrt(){
-            axios.get("/LoginVerificado/servicio").then(res=>{
-                document.getElementById("servicio").innerHTML = "La fecha y hora actual es: "+res.data;
+    function obtenersqrt(numero){
+            axios.get("/Sqrt?value="+numero).then(res=>{
+                document.getElementById("servicio").innerHTML = "El resultado matematico es: "+JSON.stringify(res.data);
             })
         }
 
 
     return {
-        obtenerFecha:obtenerFecha,
-
+        obteneratan:obtenerAtan,
+        obtenersqrt:obtenersqrt
     };
 })();

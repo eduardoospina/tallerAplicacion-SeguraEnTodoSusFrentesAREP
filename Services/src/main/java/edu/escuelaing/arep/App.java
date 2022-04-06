@@ -18,12 +18,14 @@ public class App
         get("/hello", (req, res) -> "Hello Heroku");
 
         get("/sqrt", ((req, res) -> {
+            System.out.println("entro peticion a sqrt");
             res.type("application/json");
             Double input = Double.parseDouble(req.queryParams("value"));
             return Mathimplementation.Sqrt(input);
         }));
 
         get("/atan", ((req, res) -> {
+            System.out.println("entro peticion a atan");
             res.type("application/json");
             Double input = Double.parseDouble(req.queryParams("value"));
             return Mathimplementation.Atan(input);
