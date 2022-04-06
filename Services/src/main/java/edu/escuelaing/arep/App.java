@@ -4,11 +4,17 @@ import com.google.gson.Gson;
 import org.json.simple.JSONObject;
 
 /**
- * Hello world!
  *
+ * @author Eduardo ospina
  */
 public class App 
 {
+
+
+    /**
+     * metodo main que se encarga de crear los sockets del servidor trayendo el puerto y los certificados y las llaves ara poder hacer el redirecionamiento de las peticiones de manera segura.
+     * @param args Array de string
+     */
     public static void main(String[] args) {
 
         port(getPort());
@@ -33,6 +39,11 @@ public class App
 
     }
 
+
+    /**
+     * trae el puerto para la creacion dle servicio
+     * @return int puerto
+     */
     static int getPort() {
         if (System.getenv("PORT") != null) {
             return Integer.parseInt(System.getenv("PORT"));
@@ -40,6 +51,10 @@ public class App
         return 34002; //returns default port if heroku-port isn't set(i.e. on localhost)
     }
 
+    /**
+     *retorna las llave d eun path determinado.
+     * @return String con el path en donde se encuentra la keystore.
+     */
     private static String getKeyStore() {
         if (System.getenv("KEYSTORE") != null){
             return System.getenv("KEYSTORE");
@@ -47,6 +62,10 @@ public class App
         return "keystores/ecikeystore2.p12";
     }
 
+    /**
+     * retorne la tienda de certcados d eun path determinado.
+     * @return  String la tienda del keystore.
+     */
     private static String getKeyTrustStore() {
         if (System.getenv("KEYSTORE") != null){
             return System.getenv("KEYSTORE");

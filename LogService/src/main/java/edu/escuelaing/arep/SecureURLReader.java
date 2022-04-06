@@ -18,8 +18,16 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 
+/**
+ *
+ * @author Eduardo ospina
+ */
 public class SecureURLReader {
 
+
+    /**
+     * lector seguro que se conecta a las llaves y a la ienda de certificados ara generar la conecion segura.
+     */
     public static void reader() {
         try {
 
@@ -61,6 +69,10 @@ public class SecureURLReader {
 
     }
 
+    /**
+     * lee un url dado y se conecta de manera segura  apartir de la tienda de certificados y llaves que lee en elmetodo anterior.
+     * @param sitetoread
+     */
     public static void readURL(String sitetoread) {
         try {
             // Crea el objeto que representa una URL2
@@ -99,6 +111,11 @@ public class SecureURLReader {
         }
     }
 
+    /**
+     * se conecta al servicio de math y hace la peticion y trae el resultado de la funcion sqrt
+     * @param datos
+     * @return  string repsuesta
+     */
     public static String getSqrt(Double datos) throws IOException {
         String site = "https://ec2-34-207-220-18.compute-1.amazonaws.com:34002/sqrt?value="+ datos;
         URL url = new URL(site);
@@ -116,6 +133,12 @@ public class SecureURLReader {
         }
     }
 
+
+    /**
+     * se conecta al servicio de math y hace la peticion y trae el resultado de la funcion atan
+     * @param datos
+     * @return  string repsuesta
+     */
     public static String getAtan(Double datos) throws IOException {
         String site = "https://ec2-34-207-220-18.compute-1.amazonaws.com:34002/atan?value="+ datos;
         URL url = new URL(site);

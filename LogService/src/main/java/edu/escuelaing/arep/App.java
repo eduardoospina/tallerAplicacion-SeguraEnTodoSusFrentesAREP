@@ -10,8 +10,8 @@ import spark.Session;
 
 
 /**
- * Hello world!
  *
+ * @author Eduardo ospina
  */
 public class App 
 {
@@ -20,6 +20,10 @@ public class App
     private static userdb usuarios = new userdb();
 
 
+    /**
+     * main del sevicio que lo crea a partir de los puertos, la tienda de certificados y llaves, generandolo d emanera segura y permite conectarlo, corre los path necesarios para que funcione completamente el proyecto.
+     * @param args
+     */
     public static void main(String[] args) {
         //System.out.println(convertir("12345Ab3"));
 
@@ -67,6 +71,10 @@ public class App
 
     }
 
+    /**
+     * trae el puerto para la creacion dle servicio
+     * @return int puerto
+     */
     static int getPort() {
         if (System.getenv("PORT") != null) {
             return Integer.parseInt(System.getenv("PORT"));
@@ -74,6 +82,10 @@ public class App
         return 34000; //returns default port if heroku-port isn't set(i.e. on localhost)
     }
 
+    /**
+     *retornsa los keystore en un path determinado
+     * @return String con el path en donde se encuentra la keystore.
+     */
     static String getKeystore() {
         if (System.getenv("KEYSTORE") != null) {
             return System.getenv("Keystore");
@@ -81,7 +93,11 @@ public class App
         return "keystores/ecikeystore.p12"; //returns default port if heroku-port isn't set(i.e. on localhost)
     }
 
-
+    /**
+     *genera los hash a partir de la clave que entre, permite no guardar las llaves sino los hash de las llaves.
+     * @param Clave
+     * @return String con el phash generado
+     */
     public static String convertir(String Clave) {
         MessageDigest mensaje = null;
         try {
@@ -99,6 +115,11 @@ public class App
         return finalizacion.toString();
     }
 
+    /**
+     *valida que la conecion este autorizada al momento de entrar, en donde etra el request y response yvalida que si este autorizado antes de continuar.
+     * @param request
+     * @param response
+     */
     private static void validarIngresoInvalido(Request request, Response response) {
         request.session(true);
         Session session = request.session();
