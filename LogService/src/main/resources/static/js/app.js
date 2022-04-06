@@ -1,6 +1,6 @@
 var Services = (function () {
 
-    var Url = "https://localhost:34000/"
+    var Url = "https://ec2-34-207-220-18.compute-1.amazonaws.com/"
 
     function login(idusermame, Passwordid){
         const usuario={user:idusermame,password:Passwordid}

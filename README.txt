@@ -109,15 +109,24 @@ cuando los certificados estan creados correctamente, se manda a correr los progr
 se repiten lo sismo pasos para cada una de las maquncas y se crean 2 EC2 en donde en cada una se monta un servidor utilizado para 
 solucionar el proyecto completmanete, los siguientes screenshots muestran los procedimientos necesarios. 
 
-![]()
-![]()
-![]()
-![]()
-![]()
-![]()
-![]()
-![]()
-![]()
+![](https://i.postimg.cc/Wpy9TnHn/Capture1.png)
+
+![](https://i.postimg.cc/y8mnhzYQ/Capture2.png)
+
+![](https://i.postimg.cc/MGtD4bB1/Capture3.png)
+
+![](https://i.postimg.cc/Qttbr9gw/Capture4.png
+)
+![](https://i.postimg.cc/PxRMfX2x/Capture5.png)
+
+![](https://i.postimg.cc/yx3ykMbT/Capture6.png)
+
+![](https://i.postimg.cc/59XhB6cs/Capture7.png)
+
+![](https://i.postimg.cc/g2W1bsx7/Capture8.png)
+
+![](https://i.postimg.cc/5NcR8gSt/Capture9.png)
+
 ![]()
 ![]()
 ![]()

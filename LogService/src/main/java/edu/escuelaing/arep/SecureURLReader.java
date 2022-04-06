@@ -100,7 +100,7 @@ public class SecureURLReader {
     }
 
     public static String getSqrt(Double datos) throws IOException {
-        String site = "https://localhost:34002/sqrt?value="+ datos;
+        String site = "https://ec2-34-207-220-18.compute-1.amazonaws.com:34002/sqrt?value="+ datos;
         URL url = new URL(site);
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("GET");
@@ -117,7 +117,7 @@ public class SecureURLReader {
     }
 
     public static String getAtan(Double datos) throws IOException {
-        String site = "https://localhost:34002/atan?value="+ datos;
+        String site = "https://ec2-34-207-220-18.compute-1.amazonaws.com:34002/atan?value="+ datos;
         URL url = new URL(site);
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("GET");
